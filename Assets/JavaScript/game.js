@@ -6,8 +6,11 @@ $(document).ready(function() {
     var guessRemain = 10
     var win = 0;
     var lose = 0;
-    var userGuess = [];
+    var userGuess = "";
     var incorrectGuess = [];
+    var chosenLetter = "";
+    
+
 
     //display main variable/game elements on the screen for user
 
@@ -15,7 +18,6 @@ $(document).ready(function() {
     document.getElementById("guess_remain").innerHTML = guessRemain;
     document.getElementById("win").innerHTML = win;
     document.getElementById("lose").innerHTML = lose;
-    
 
     //main game
 
@@ -23,7 +25,7 @@ $(document).ready(function() {
 
     //choose letter at random
 
-    var chosenLetter = letterList[Math.floor(Math.random() * letterList.length)];
+    chosenLetter = letterList[Math.floor(Math.random() * letterList.length)];
     console.log(chosenLetter);
 
     //capture user guess
@@ -39,7 +41,13 @@ $(document).ready(function() {
             win++;
             document.getElementById("win").innerHTML = win;
             alert("You got it right! You must be Psychic!");
-            
+            incorrectGuess= [];
+            guessRemain = 10;
+            chosenLetter = "";
+            userGuess = "";
+
+            checkGuess();
+
         }
 
     // if the user guesses incorrectly they continue to guess until they get the answer right OR guesses remaining is 0    
@@ -58,6 +66,12 @@ $(document).ready(function() {
             lose++;
             alert("You are out of guesses. Probably not Psychic")
             document.getElementById("lose").innerHTML = lose;
+            incorrectGuess= [];
+            guessRemain = 10;
+            chosenLetter = "";
+            userGuess = "";
+
+            checkGuess();
 
         }
 
