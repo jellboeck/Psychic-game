@@ -32,36 +32,35 @@ $(document).ready(function() {
     console.log(userGuess)
 
     //compare user guess to chosen letter
-    //if user guesses correctly- win counter is updated and the loop starts over
+    //if user guesses correctly- win counter is updated and alert launches
 
         if (userGuess == chosenLetter) {
             win++;
             document.getElementById("win").innerHTML = win;
+            alert("You got it right! You must be Psychic!");
             
         }
 
     // if the user guesses incorrectly they continue to guess until they get the answer right OR guesses remaining is 0    
-    //if guesses reming is 0 them lose++ and loop starts over
         
-        else if (userGuess !== chosenLetter && guessRemain > 0 ) {
+        if (userGuess !== chosenLetter) {
 
             guessRemain--;
-            incorrectGuess = incorrectGuess + userGuess;
+            incorrectGuess = incorrectGuess + userGuess + " ";
             document.getElementById("guess_remain").innerHTML = guessRemain;
             document.getElementById("incorrect_guess").innerHTML = incorrectGuess;
         }
 
+    // if guesses remaining is 0 then the game is over and lose ++ and alert is triggered.
     
-
-        else if (userGuess !== chosenLetter && guessRemain > 0) {
+        if (guessRemain == 0) {
             lose++;
+            alert("You are out of guesses. Probably not Psychic")
 
         }
 
  
     })
-
-// }
 
 }
 

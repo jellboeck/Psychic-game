@@ -1,17 +1,21 @@
 .jumbotron {
 
     text-align:center;
-    background:white;
-    color:navy;
+    background-image: linear-gradient(#09203f,#14547a);
+    color: white;
 
 
 }
 
-.col-6 {
-    background: navy;
+.col-5 {
+    background-image: linear-gradient(#09203f,#14547a);
     color: white;
     text-align: center;
-    margin-bottom:20px;
+    font-weight:bold;
+    margin:auto;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    height:125px;
     padding:25px;
 
 
