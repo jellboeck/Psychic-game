@@ -15,6 +15,7 @@ $(document).ready(function() {
     document.getElementById("guess_remain").innerHTML = guessRemain;
     document.getElementById("win").innerHTML = win;
     document.getElementById("lose").innerHTML = lose;
+    
 
     //main game
 
@@ -56,6 +57,7 @@ $(document).ready(function() {
         if (guessRemain == 0) {
             lose++;
             alert("You are out of guesses. Probably not Psychic")
+            document.getElementById("lose").innerHTML = lose;
 
         }
 
