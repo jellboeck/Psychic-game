@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     //main game
 
-    //reset variable and choose letter at random(starts game over)
+    //reset variable and choose letter at random(also starts game over)
 
     function chooseLetter (){
 
@@ -50,14 +50,16 @@ $(document).ready(function() {
     //compare user guess to chosen letter
 
     //if user guesses correctly- win counter is updated and alert launches
+    //chooseLetter is called to start the game over without reseting the win/lose counter
 
         if (userGuess == chosenLetter) {
             win++;
-            alert("You got it right! The letter was " + chosenLetter +  ". Wow! You might be Psychic!");
+            alert("You got it right! The letter was '" + chosenLetter +  "'. Wow! You might be Psychic!");
             chooseLetter()
         }
 
-    // if the user guesses incorrectly they continue to guess until they get the answer right OR guesses remaining is 0    
+    //if the user guesses incorrectly they continue to guess until they get they answer right OR guesses remaining is 0 
+    //incorrect guesses are displayed for the user   
 
         else {
 
@@ -66,15 +68,17 @@ $(document).ready(function() {
           
         }
 
-    // if guesses remaining is 0 then the game is over and lose ++ and alert is triggered.
+    //if guesses remaining is 0 then the game is over and lose ++ and alert is triggered. 
+    //chooseLetter is called to start the game over without reseting the win/lose counter
     
         if (guessRemain == 0) {
             lose++;
-            alert("You are out of guesses. The letter was " + chosenLetter + ". You are probably not Psychic")
+            alert("You are out of guesses. The letter was '" + chosenLetter + "'. You are probably not Psychic")
             chooseLetter()
 
         }
 
+    //updates the screen elements to capture the last game
        
         document.getElementById("lose").innerHTML = lose;
         document.getElementById("guess_remain").innerHTML = guessRemain;
