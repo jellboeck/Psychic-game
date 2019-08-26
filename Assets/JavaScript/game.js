@@ -21,43 +21,50 @@ $(document).ready(function() {
 
     //main game
 
-    function checkGuess () {
-
     //choose letter at random
+
+    function chooseLetter (){
+
+    incorrectGuess= [];
+    guessRemain = 10;
+    chosenLetter = "";
+    userGuess = "";
 
     chosenLetter = letterList[Math.floor(Math.random() * letterList.length)];
     console.log(chosenLetter);
 
-    //capture user guess
 
+}
+  
+    function checkGuess () {
+
+    //call the choose letter function
+    chooseLetter()
+
+    //capture user guess
+   
     document.addEventListener("keyup", function() {
-    var userGuess = event.key;
-    console.log(userGuess)
+        var userGuess = event.key;
+        console.log(userGuess)
 
     //compare user guess to chosen letter
     //if user guesses correctly- win counter is updated and alert launches
 
         if (userGuess == chosenLetter) {
             win++;
-            document.getElementById("win").innerHTML = win;
             alert("You got it right! You must be Psychic!");
-            incorrectGuess= [];
-            guessRemain = 10;
-            chosenLetter = "";
-            userGuess = "";
-
-            checkGuess();
-
+            chooseLetter()
         }
 
     // if the user guesses incorrectly they continue to guess until they get the answer right OR guesses remaining is 0    
         
-        if (userGuess !== chosenLetter) {
+        // else if (userGuess !== chosenLetter) {
+
+        else {
 
             guessRemain--;
             incorrectGuess = incorrectGuess + userGuess + " ";
-            document.getElementById("guess_remain").innerHTML = guessRemain;
-            document.getElementById("incorrect_guess").innerHTML = incorrectGuess;
+          
         }
 
     // if guesses remaining is 0 then the game is over and lose ++ and alert is triggered.
@@ -65,18 +72,20 @@ $(document).ready(function() {
         if (guessRemain == 0) {
             lose++;
             alert("You are out of guesses. Probably not Psychic")
-            document.getElementById("lose").innerHTML = lose;
-            incorrectGuess= [];
-            guessRemain = 10;
-            chosenLetter = "";
-            userGuess = "";
-
-            checkGuess();
+            chooseLetter()
 
         }
 
+       
+        document.getElementById("lose").innerHTML = lose;
+        document.getElementById("guess_remain").innerHTML = guessRemain;
+        document.getElementById("incorrect_guess").innerHTML = incorrectGuess;
+        document.getElementById("win").innerHTML = win;
+
  
-    })
+ 
+
+})
 
 }
 
