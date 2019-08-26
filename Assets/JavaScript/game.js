@@ -21,7 +21,7 @@ $(document).ready(function() {
 
     //main game
 
-    //choose letter at random
+    //reset variable and choose letter at random(starts game over)
 
     function chooseLetter (){
 
@@ -38,7 +38,7 @@ $(document).ready(function() {
   
     function checkGuess () {
 
-    //call the choose letter function
+    //call the chooseLetter function 
     chooseLetter()
 
     //capture user guess
@@ -48,17 +48,16 @@ $(document).ready(function() {
         console.log(userGuess)
 
     //compare user guess to chosen letter
+
     //if user guesses correctly- win counter is updated and alert launches
 
         if (userGuess == chosenLetter) {
             win++;
-            alert("You got it right! You must be Psychic!");
+            alert("You got it right! The letter was " + chosenLetter +  ". Wow! You might be Psychic!");
             chooseLetter()
         }
 
     // if the user guesses incorrectly they continue to guess until they get the answer right OR guesses remaining is 0    
-        
-        // else if (userGuess !== chosenLetter) {
 
         else {
 
@@ -71,7 +70,7 @@ $(document).ready(function() {
     
         if (guessRemain == 0) {
             lose++;
-            alert("You are out of guesses. Probably not Psychic")
+            alert("You are out of guesses. The letter was " + chosenLetter + ". You are probably not Psychic")
             chooseLetter()
 
         }
@@ -82,12 +81,11 @@ $(document).ready(function() {
         document.getElementById("incorrect_guess").innerHTML = incorrectGuess;
         document.getElementById("win").innerHTML = win;
 
- 
- 
-
 })
 
 }
+
+//calls the check guess function and starts the game
 
 checkGuess()
 
