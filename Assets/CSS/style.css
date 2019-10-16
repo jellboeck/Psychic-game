@@ -29,6 +29,15 @@ body {
 
 }
 
+#message{
+    background-image:linear-gradient(white,whitesmoke);
+    border-radius: 15px;
+    color:#3f0d12;
+    font-weight: bold;
+    width: 600px;
+    margin: auto;
+}
+
 #win {
 
     font-size: 25px;

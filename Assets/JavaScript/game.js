@@ -54,7 +54,9 @@ $(document).ready(function() {
 
         if (userGuess == chosenLetter) {
             win++;
-            alert("You got it right! The letter was '" + chosenLetter +  "'. Wow! You might be Psychic!");
+            chosenLetter = chosenLetter.toUpperCase();
+            document.getElementById("message").innerHTML = ("You got it right! The letter was '" + chosenLetter +  "'. Wow! You might be Psychic!");
+
             chooseLetter()
         }
 
@@ -64,6 +66,7 @@ $(document).ready(function() {
         else {
 
             guessRemain--;
+            userGuess= userGuess.toUpperCase();
             incorrectGuess = incorrectGuess + userGuess + " ";
           
         }
@@ -73,7 +76,10 @@ $(document).ready(function() {
     
         if (guessRemain == 0) {
             lose++;
-            alert("You are out of guesses. The letter was '" + chosenLetter + "'. You are probably not Psychic")
+            chosenLetter = chosenLetter.toUpperCase();
+            // alert("You are out of guesses. The letter was '" + chosenLetter + "'. You are probably not Psychic");
+            document.getElementById("message").innerHTML = ("You are out of guesses. The letter was '" + chosenLetter + "'. You are probably not Psychic.");
+
             chooseLetter()
 
         }
